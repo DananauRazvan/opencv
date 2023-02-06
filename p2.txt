@@ -1,0 +1,18 @@
+1. Enrollment of Celeb Images
+For each image in a dataset, this function creates a face descriptor. 
+The dataset is divided into subfolders, each of which belongs to a distinct individual. 
+The code initially retrieves the person's name from the label map for each subdirectory. 
+Then, all of the picture files in that subfolder are read in. 
+The method reads the picture from each image file using OpenCV before converting it from BGR color space to RGB. 
+The method then employs Dlib's face detector to identify faces in the image and Dlib's shape predictor to identify facial landmarks for each identified face.
+The method then computes a face descriptor for each recognized face using Dlib's face recognizer. 
+The face descriptors and the associated person's name are kept in a list.
+2. Testing
+The closest match for each test image in the "test-images" directory is determined by this code using the face descriptors that were previously constructed. 
+The algorithm first reads each test image using OpenCV before converting it from BGR color space to RGB. 
+The method then employs Dlib's face detector to identify faces in the image and Dlib's shape predictor to identify facial landmarks for each identified face. 
+The method then computes a face descriptor for the discovered face using Dlib's face recognizer. 
+The closest match is found by comparing this face descriptor to all those previously created by the programme.
+The code assumes there is a match and prints the name of the closest match if the gap between the closest match and the closest match is less than 0.55. 
+The code prints "No Look-Alike Found for the Test Image" if there isn't a match. 
+The code also shows the test image and the image of the closest match.
